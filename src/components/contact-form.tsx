@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Send } from "lucide-react";
 import { services } from "@/data/services";
 import { site } from "@/lib/site";
+import styles from "./contact-form.module.css";
 
 export function ContactForm({
   initialService = "",
@@ -32,31 +33,47 @@ export function ContactForm({
     );
   }
   return (
-    <form className="contact-form" onSubmit={onSubmit}>
-      <div className="form-field">
-        <label htmlFor="name">Your name</label>
-        <input
-          id="name"
-          name="name"
-          autoComplete="name"
-          placeholder="Alex Morgan"
-          required
-          maxLength={100}
-        />
+    <form
+      id="project-enquiry"
+      className={styles.form}
+      onSubmit={onSubmit}
+      aria-label="Project enquiry"
+    >
+      <div className={styles.heading}>
+        <span className={styles.headingIcon}>
+          <Send size={21} aria-hidden="true" />
+        </span>
+        <div>
+          <h2 id="enquiry-title">Tell us about your project</h2>
+          <p>A little context. A world of possibilities.</p>
+        </div>
       </div>
-      <div className="form-field">
-        <label htmlFor="email">Email address</label>
-        <input
-          id="email"
-          name="email"
-          autoComplete="email"
-          type="email"
-          placeholder="alex@company.com"
-          required
-          maxLength={254}
-        />
+      <div className={styles.fieldsRow}>
+        <div className={styles.field}>
+          <label htmlFor="name">Your name</label>
+          <input
+            id="name"
+            name="name"
+            autoComplete="name"
+            placeholder="Alex Morgan"
+            required
+            maxLength={100}
+          />
+        </div>
+        <div className={styles.field}>
+          <label htmlFor="email">Email address</label>
+          <input
+            id="email"
+            name="email"
+            autoComplete="email"
+            type="email"
+            placeholder="alex@company.com"
+            required
+            maxLength={254}
+          />
+        </div>
       </div>
-      <div className="form-field">
+      <div className={styles.field}>
         <label htmlFor="service">What would you like to build?</label>
         <select
           id="service"
@@ -73,7 +90,7 @@ export function ContactForm({
           ))}
         </select>
       </div>
-      <div className="form-field">
+      <div className={styles.field}>
         <label htmlFor="message">Tell us about your project</label>
         <textarea
           id="message"
@@ -84,14 +101,14 @@ export function ContactForm({
           rows={5}
         />
       </div>
-      <button className="button button--dark" type="submit">
+      <button className={styles.submit} type="submit">
         Create email enquiry <ArrowUpRight size={16} />
       </button>
-      <p className="form-note">
+      <p className={styles.note}>
         This opens a draft in your email app. Your enquiry is sent only when you
         send that email.
       </p>
-      <p role="status" className="form-status">
+      <p role="status" className={styles.status}>
         {status}
       </p>
     </form>
