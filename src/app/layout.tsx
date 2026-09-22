@@ -17,11 +17,20 @@ export const metadata: Metadata = {
     siteName: site.name,
     type: "website",
     locale: "en_IN",
+    images: [
+      {
+        url: "/images/brand/pantech-social.png",
+        width: 1200,
+        height: 630,
+        alt: "PanTech Software",
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "PanTech Software",
     description: site.description,
+    images: ["/images/brand/pantech-social.png"],
   },
   robots: { index: true, follow: true },
 };

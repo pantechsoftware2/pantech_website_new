@@ -54,7 +54,22 @@ The reference is the only artwork supplied so far. `Artwork` displays clipped vi
 2. In `src/data/projects.ts`, add `src: "/images/projects/abroad-eduversity.webp"` to that project's `artwork` object.
 3. Update its `alt` description. The component automatically uses an optimized Next.js image instead of the reference region.
 
-Hero and AI globe artwork can be replaced the same way by supplying `src` to `Artwork` in their section components. The logo is an SVG approximation of the reference; replace it with the official brand asset when available. The handwritten notes use Caveat, and the main text uses Inter.
+Hero and AI globe artwork can be replaced the same way by supplying `src` to `Artwork` in their section components. The supplied PanTech logo is installed in the shared header and footer. The handwritten notes use Caveat, and the main text uses Inter.
+
+## Brand assets
+
+All brand files are saved locally in `public/images/brand/`:
+
+- `pantech-logo-original.jpeg`: the supplied original, preserved unchanged.
+- `pantech-logo-transparent.png`: transparent master prepared from the original using the built-in image generation tool.
+- `pantech-logo.webp` and `pantech-logo.png`: optimized wordmark exports.
+- `pantech-mark.png`: symbol for small-format uses.
+- `icon-192.png` and `icon-512.png`: web manifest icons.
+- `pantech-social.png`: 1200 × 630 sharing image for Open Graph and Twitter.
+
+The header uses a light logo backing so the original gradient colors remain readable on the dark hero. The footer uses the transparent version. Native Next.js metadata files `src/app/favicon.ico`, `src/app/icon.png`, and `src/app/apple-icon.png` provide multi-resolution browser icons and the Apple touch icon. `src/app/manifest.ts` serves the web manifest. No logo asset depends on a Downloads folder or an external image host.
+
+Regenerate the derived files from the saved master with `npm run assets:brand`. This uses Sharp for deterministic export sizes and ICO packaging. The transparent-master preparation prompt was: remove only the white background and excess whitespace; preserve the supplied P symbol, gradients, two-line PanTech Software wordmark, shapes and typography; use true alpha transparency with tight padding. The original file is retained for brand comparison or future replacement with an official transparent/vector master.
 
 ## Functionality and launch notes
 
@@ -74,4 +89,5 @@ npm run test:e2e
 ```
 
 Playwright starts an isolated production server on port 3100, separate from the development preview. Tests cover desktop and mobile layouts, browser errors, horizontal overflow, project navigation, 404s, contact validation, service selection, keyboard access, and mobile menu behavior. Full-page screenshots are saved under `test-results/`.
+
 # pantech_website_new

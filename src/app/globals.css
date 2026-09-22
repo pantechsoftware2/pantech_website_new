@@ -191,18 +191,16 @@ button:disabled {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 17px;
-  font-weight: 750;
-  line-height: 1.1;
   flex-shrink: 0;
+  padding: 7px 10px;
+  background: #fff;
+  border-radius: 10px;
 }
-.logo-subtitle {
+.logo-image {
   display: block;
-  font-size: 11px;
-  letter-spacing: 0.25px;
-  font-weight: 500;
-  margin-top: 3px;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
 }
 .desktop-nav {
   display: flex;
@@ -818,25 +816,9 @@ h2 span {
   padding-bottom: 36px;
 }
 .logo--footer {
-  font-size: 16px;
-  gap: 6px;
-  white-space: nowrap;
-}
-.logo--footer svg {
-  width: 23px;
-  height: 27px;
-}
-.logo--footer > span {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  font-weight: 600;
-}
-.logo--footer .logo-subtitle {
-  font-size: 16px;
-  letter-spacing: -0.5px;
-  font-weight: 450;
-  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
 }
 .footer-brand > p {
   color: #8992a0;
@@ -1177,15 +1159,10 @@ h2 span {
     height: 67px;
   }
   .logo {
-    font-size: 13px;
-    gap: 5px;
+    padding: 5px 8px;
   }
-  .logo svg {
-    width: 26px;
-    height: 30px;
-  }
-  .logo-subtitle {
-    font-size: 9px;
+  .logo-image {
+    width: 112px;
   }
   .desktop-nav {
     padding: 5px 10px;
@@ -1483,10 +1460,7 @@ h2 span {
     padding-bottom: 28px;
   }
   .logo--footer {
-    font-size: 12px;
-  }
-  .logo--footer .logo-subtitle {
-    font-size: 12px;
+    padding: 0;
   }
   .footer-brand > p {
     font-size: 7px;
@@ -1536,12 +1510,6 @@ h2 span {
   .site-header {
     height: 76px;
     padding: 0;
-  }
-  .logo {
-    font-size: 16px;
-  }
-  .logo-subtitle {
-    font-size: 10px;
   }
   .header-actions .button {
     font-size: 10px;
@@ -1866,12 +1834,6 @@ h2 span {
   .footer-brand {
     grid-column: span 2;
   }
-  .logo--footer {
-    font-size: 15px;
-  }
-  .logo--footer .logo-subtitle {
-    font-size: 15px;
-  }
   .footer-brand > p {
     font-size: 10px;
   }
@@ -1920,6 +1882,14 @@ h2 span {
   }
   .back-link {
     margin-bottom: 25px;
+  }
+}
+@media (max-width: 360px) {
+  .logo-image {
+    width: 96px;
+  }
+  .header-actions {
+    gap: 6px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
